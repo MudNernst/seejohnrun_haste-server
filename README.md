@@ -8,6 +8,8 @@
 
 ***注：Docker下挂载`/app`目录需要提前设置`host`对应目录权限：`chown -R 1000:1000 <path/to/mount>`***
 
+Docker Image参见 <https://hub.docker.com/r/mudnernst1217/hastebin>
+
 # Haste
 
 Haste is an open-source pastebin software written in node.js, which is easily
