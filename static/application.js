@@ -262,7 +262,8 @@ haste.prototype.configureButtons = function() {
   this.buttons = [
     {
       $where: $('#box2 .save'),
-      label: 'Save',
+      // label: 'Save',
+      label: '保存',
       shortcutDescription: 'control + s',
       shortcut: function(evt) {
         return evt.ctrlKey && (evt.keyCode === 83);
@@ -275,7 +276,8 @@ haste.prototype.configureButtons = function() {
     },
     {
       $where: $('#box2 .new'),
-      label: 'New',
+      // label: 'New',
+      label: '新建',
       shortcut: function(evt) {
         return evt.ctrlKey && evt.keyCode === 78;
       },
@@ -286,7 +288,8 @@ haste.prototype.configureButtons = function() {
     },
     {
       $where: $('#box2 .duplicate'),
-      label: 'Duplicate & Edit',
+      // label: 'Duplicate & Edit',
+      label: '复制 & 编辑',
       shortcut: function(evt) {
         return _this.doc.locked && evt.ctrlKey && evt.keyCode === 68;
       },
@@ -297,7 +300,8 @@ haste.prototype.configureButtons = function() {
     },
     {
       $where: $('#box2 .raw'),
-      label: 'Just Text',
+      // label: 'Just Text',
+      label: '仅文本',
       shortcut: function(evt) {
         return evt.ctrlKey && evt.shiftKey && evt.keyCode === 82;
       },
@@ -308,13 +312,14 @@ haste.prototype.configureButtons = function() {
     },
     {
       $where: $('#box2 .twitter'),
-      label: 'Twitter',
+      // label: 'Twitter',
+      label: '复制链接',
       shortcut: function(evt) {
         return _this.options.twitter && _this.doc.locked && evt.shiftKey && evt.ctrlKey && evt.keyCode == 84;
       },
       shortcutDescription: 'control + shift + t',
       action: function() {
-        window.open('https://twitter.com/share?url=' + encodeURI(window.location.href));
+        // window.open('https://twitter.com/share?url=' + encodeURI(window.location.href));
       }
     }
   ];

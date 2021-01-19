@@ -6,4 +6,9 @@ set -e
 
 node ./docker-entrypoint.js > ./config.js
 
+if [ ! -e "/app/server.js" ]; then
+  cp -rf /usr/src/app/* /app
+fi
+cd /app
+
 exec "$@"

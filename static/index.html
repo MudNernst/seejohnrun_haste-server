@@ -7,9 +7,11 @@
 		<link rel="stylesheet" type="text/css" href="solarized_dark.css"/>
 		<link rel="stylesheet" type="text/css" href="application.css"/>
 
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+		<script type="text/javascript" src="jquery.min.js"></script>
 		<script type="text/javascript" src="highlight.min.js"></script>
 		<script type="text/javascript" src="application.min.js"></script>
+		<script type="text/javascript" src="clipboard.min.js"></script>
 
 		<meta name="robots" content="noindex,nofollow"/>
 
@@ -33,9 +35,18 @@
 			$(function() {
 				app = new haste('hastebin', { twitter: true });
 				handlePop({ target: window });
+
+				// 增加剪贴板
+				var clipboard = new ClipboardJS('#twitter', {
+					text: function() {
+						return window.location.href;
+					}
+				});
+				clipboard.on('success', function() {
+					alert('链接复制成功');
+				});
 			});
 		</script>
-
 	</head>
 
 	<body>
@@ -51,7 +62,7 @@
 				<button class="new function button-picture">New</button>
 				<button class="duplicate function button-picture">Duplicate & Edit</button>
 				<button class="raw function button-picture">Just Text</button>
-				<button class="twitter function button-picture">Twitter</button>
+				<button class="twitter function button-picture" id="twitter">Twitter</button>
 			</div>
 			<div id="box3" style="display:none;">
 				<div class="label"></div>

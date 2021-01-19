@@ -1,3 +1,13 @@
+# Mud Nernst Mod
+
+1. 增加MySQL支持
+2. 增加工具条汉化
+3. 调整Twitter分享为复制链接
+4. 增加Docker下根目录(`/app`)挂载支持(方便修改源代码或变更配置) 
+5. 修复原代码部分错误
+
+***注：Docker下挂载`/app`目录需要提前设置`host`对应目录权限：`chown -R 1000:1000 <path/to/mount>`***
+
 # Haste
 
 Haste is an open-source pastebin software written in node.js, which is easily
@@ -147,6 +157,33 @@ You can also just set the environment variable for `DATABASE_URL` to your databa
 You will have to manually add a table to your postgres database:
 
 `create table entries (id serial primary key, key varchar(255) not null, value text not null, expiration int, unique(key));`
+
+You can also set an `expire` option to the number of seconds to expire keys in.
+This is off by default, but will constantly kick back expirations on each view
+or post.
+
+All of which are optional except `type` with very logical default values.
+
+### MySQL
+
+To use mysql storage you must install the `mysql` package in npm
+
+`npm install mysql`
+
+Once you've done that, your config section should look like:
+
+``` json
+{
+  "type": "mysql",
+  "host": "127.0.0.1",
+  "port": 3306,
+  "user": "user",
+  "password": "password",
+  "database": "database"
+}
+```
+
+A table named 'entries' will be automatically created to your mysql database:
 
 You can also set an `expire` option to the number of seconds to expire keys in.
 This is off by default, but will constantly kick back expirations on each view
