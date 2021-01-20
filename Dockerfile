@@ -1,22 +1,18 @@
-FROM node:14.8.0-stretch
+FROM node:14.8.0-alpine
 
 RUN mkdir -p /usr/src/app && \
     chown node:node /usr/src/app && \
     mkdir -p /app && \
-    chown node:node /app
+    chown node:node /app && \
+    sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
+    apk -U upgrade && \
+    apk add curl
+
 USER node:node 
 
 WORKDIR /usr/src/app
 
-COPY --chown=node:node . . 
-
-RUN npm install && \
-    npm install redis@0.8.1 && \
-    npm install pg@4.1.1 && \
-    npm install mysql@2.18.1 && \
-    npm install memcached@2.2.2 && \
-    npm install aws-sdk@2.738.0 && \
-    npm install rethinkdbdash@2.3.31
+COPY --chown=node:node . .
 
 ENV STORAGE_TYPE=memcached \
     STORAGE_HOST=127.0.0.1 \
@@ -58,7 +54,7 @@ ENV DOCUMENTS=about=./about.md
 
 EXPOSE ${PORT}
 STOPSIGNAL SIGINT
-ENTRYPOINT [ "bash", "docker-entrypoint.sh" ]
+ENTRYPOINT [ "sh", "docker-entrypoint.sh" ]
 
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s \
     --retries=3 CMD [ "curl" , "-f", "localhost:${PORT}", "||", "exit", "1"]
