@@ -346,18 +346,18 @@ Here is a list of all the environment variables
 
 ### Storage
 
-|          Name          | Default value |                                                  Description                                                  |
-| :--------------------: | :-----------: | :-----------------------------------------------------------------------------------------------------------: |
-|      STORAGE_TYPE      |   memcached   |    Type of storage . Accepted values: "memcached","redis","postgres","rethinkdb", "amazon-s3", and "file"     |
-|      STORAGE_HOST      |   127.0.0.1   |                 Storage host. Applicable for types: memcached, redis, postgres, and rethinkdb                 |
-|      STORAGE_PORT      |     11211     |           Port on the storage host. Applicable for types: memcached, redis, postgres, and rethinkdb           |
-| STORAGE_EXPIRE_SECONDS |    2592000    | Number of seconds to expire keys in. Applicable for types. Redis, postgres, memcached. `expire` option to the |
-|       STORAGE_DB       |       2       |                    The name of the database. Applicable for redis, postgres, and rethinkdb                    |
-|    STORAGE_PASSWORD    |               |                       Password for database. Applicable for redis, postges, rethinkdb .                       |
-|    STORAGE_USERNAME    |               |                           Database username. Applicable for postgres, and rethinkdb                           |
-|   STORAGE_AWS_BUCKET   |               |                          Applicable for amazon-s3. This is the name of the S3 bucket                          |
-|   STORAGE_AWS_REGION   |               |                      Applicable for amazon-s3. The region in which the bucket is located                      |
-|    STORAGE_FILEPATH    |               |                            Path to file to save data to. Applicable for type file                             |
+|          Name          | Default value |                                                  Description                                                        |
+| :--------------------: | :-----------: | :-----------------------------------------------------------------------------------------------------------------: |
+|      STORAGE_TYPE      |   memcached   |    Type of storage . Accepted values: "memcached","redis","postgres","rethinkdb", "amazon-s3", and "file"           |
+|      STORAGE_HOST      |   127.0.0.1   |                 Storage host. Applicable for types: memcached, redis, postgres, and rethinkdb                       |
+|      STORAGE_PORT      |     11211     |           Port on the storage host. Applicable for types: memcached, redis, postgres, and rethinkdb                 |
+| STORAGE_EXPIRE_SECONDS |    2592000    | Number of seconds to expire keys in. Applicable for types. Redis, postgres, mysql, memcached. `expire` option to the |
+|       STORAGE_DB       |       2       |                    The name of the database. Applicable for redis, postgres, and rethinkdb                          |
+|    STORAGE_PASSWORD    |               |                       Password for database. Applicable for redis, postges, rethinkdb .                             |
+|    STORAGE_USERNAME    |               |                           Database username. Applicable for postgres, and rethinkdb                                 |
+|   STORAGE_AWS_BUCKET   |               |                          Applicable for amazon-s3. This is the name of the S3 bucket                                |
+|   STORAGE_AWS_REGION   |               |                      Applicable for amazon-s3. The region in which the bucket is located                            |
+|    STORAGE_FILEPATH    |               |                            Path to file to save data to. Applicable for type file                                   |
 
 ### Logging
 
