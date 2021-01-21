@@ -11,6 +11,24 @@
 
 Docker Image参见 <https://hub.docker.com/r/mudnernst1217/hastebin>
 
+## Docker运行示例(基于MySQL)
+
+```
+docker run \
+--name hastebin \
+--publish 29777:7777 \
+--volume /data/pasteboard/root:/app \
+--env STORAGE_TYPE="mysql" \
+--env STORAGE_HOST="172.18.0.1" \
+--env STORAGE_PORT="3306" \
+--env STORAGE_DB="pasteboard" \
+--env STORAGE_USERNAME="pasteboard" \
+--env STORAGE_PASSWORD="pasteboard" \
+--env STORAGE_EXPIRE_SECONDS="" \
+--detach --restart=always \
+mudnernst1217/hastebin
+```
+
 # Haste
 
 Haste is an open-source pastebin software written in node.js, which is easily
